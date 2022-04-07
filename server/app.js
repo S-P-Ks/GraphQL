@@ -14,7 +14,7 @@ app.use(
 
 mongoose
   .connect(
-    "mongodb+srv://Shubham:shubham@cluster0.oe8my.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    `mongodb+srv://Shubham:${process.env.password}@cluster0.oe8my.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
   )
   .then(() => {
     console.log("Connected to Database");

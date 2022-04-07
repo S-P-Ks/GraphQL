@@ -100,14 +100,27 @@ const Mutation = new GraphQLObjectType({
       args: {
         name: { type: GraphQLString },
         age: { type: GraphQLInt },
-        resolve(parent, args) {
-          let author = new Author({
-            name: args.name,
-            age: args.age,
-          });
-
-          author.save();
-        },
+      },
+      resolve(parent, args) {
+        let author = new Author({
+          name: args.name,
+          age: args.age,
+        });
+        author.save();
+      },
+    },
+    addBook: {
+      type: AuthorType,
+      args: {
+        name: { type: GraphQLString },
+        age: { type: GraphQLInt },
+      },
+      resolve(parent, args) {
+        let author = new Author({
+          name: args.name,
+          age: args.age,
+        });
+        author.save();
       },
     },
   },
@@ -115,4 +128,5 @@ const Mutation = new GraphQLObjectType({
 
 module.exports = new GraphQLSchema({
   query: RootQuery,
+  mutation: Mutation,
 });
